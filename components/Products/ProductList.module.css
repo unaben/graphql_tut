@@ -1,0 +1,33 @@
+.card {
+    color: white;
+    padding: 1rem;
+    min-height: 4rem;
+    box-shadow: 5px 5px 5px 3px #d3d3d3;
+  }
+  
+  .cards {
+    padding: 2rem 1rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+      Bitstream Vera Sans Mono, Courier New, monospace;
+  }
+
+  .card h2, .card h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .card h2 {
+    margin: 1rem 0;
+  }
+
+
+  .card a {
+    text-decoration: none;
+    color: #000000;
+  }
+  

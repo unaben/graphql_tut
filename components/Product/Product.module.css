@@ -1,0 +1,29 @@
+.card {
+    color: black;
+    padding: 1rem;
+    min-height: 4rem;
+    box-shadow: 5px 5px 5px 3px #d3d3d3;
+    width: 50%;
+    margin: 2rem auto;
+    line-height: 1.5;
+  }
+
+  .card h2, .card h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .card h2 {
+    margin: 1rem 0;
+  }
+
+  .card button {
+    padding: .5rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    background-color: steelblue;
+    color: white;
+    border: none;
+    font-weight: 500;
+    border-radius: 2px;
+  }
