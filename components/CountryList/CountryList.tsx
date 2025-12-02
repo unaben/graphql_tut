@@ -1,24 +1,21 @@
 "use client";
 
 import { useQuery } from "@apollo/client";
-import styles from "./CountryList.module.css";
-import {  COUNTRIES_QUERY, HELLO_QUERY } from "./utils";
+import { COUNTRIES_QUERY } from "./utils";
 import { CountryData } from "./CountryList.types";
+import styles from "./CountryList.module.css";
 
 const CountryList = () => {
- 
   const {
     data: countryData,
     loading,
     error,
-  } = useQuery<CountryData>(COUNTRIES_QUERY);
-
-  console.log("countryData: ", countryData?.countries);
-
+  } = useQuery<CountryData>(COUNTRIES_QUERY, {
+    context: { clientName: "countries" },
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return `Error! ${error.message}`;
-
 
   const countries = countryData?.countries.slice(0, 20);
 

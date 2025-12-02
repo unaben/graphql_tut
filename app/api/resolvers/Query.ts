@@ -8,7 +8,7 @@ export const Query = {
   ) => {
     const { filter } = args;
 
-    const { products } = context as IContext;
+    const { products } = context as IContext;    
 
     if (filter) {
       if (filter.onSale) {

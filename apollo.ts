@@ -1,10 +1,25 @@
-import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
+import { ApolloClient, InMemoryCache, HttpLink, ApolloLink } from "@apollo/client";
 import { useMemo } from "react";
 
-function createApolloClient () {
+function createApolloClient() {
+    const localLink = new HttpLink({ 
+        uri: '/api/graphql', 
+        credentials: 'same-origin' 
+    });
+    
+    const countriesLink = new HttpLink({ 
+        uri: 'https://countries.trevorblades.com/', 
+        credentials: 'same-origin' 
+    });
+
+    const link = ApolloLink.split(
+        (operation) => operation.getContext().clientName === 'countries',
+        countriesLink,
+        localLink
+    );
+
     return new ApolloClient({
-        // link: new HttpLink({uri: '/api/graphql', credentials: 'same-origin'}),
-        link: new HttpLink({uri: 'https://countries.trevorblades.com/', credentials: 'same-origin'}),        
+        link,
         cache: new InMemoryCache(),
         defaultOptions: {
             watchQuery: {
@@ -18,3 +33,5 @@ export function useApollo() {
     const client = useMemo(() => createApolloClient(), [])
     return client
 }
+
+

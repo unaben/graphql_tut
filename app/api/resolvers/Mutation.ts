@@ -1,4 +1,3 @@
-import { reviews } from "@/db";
 import { ICategory } from "@/model/category.types";
 import { IContext } from "@/model/interface";
 import { IAddCategory } from "@/model/mutation.types";
@@ -107,17 +106,17 @@ export const Mutation = {
     context: unknown
   ) => {
     let { categories } = context as IContext;
-    const foundIndex = categories.findIndex(category => category.id === id)
+    const foundIndex = categories.findIndex((category) => category.id === id);
 
     categories = categories.map((category) => {
       if (category.id === id) {
-        return {...input, id: category.id};
+        return { ...input, id: category.id };
       } else {
         return category;
       }
     });
-    
-    return categories[foundIndex]
+
+    return categories[foundIndex];
   },
 
   updateProduct: (
@@ -126,17 +125,17 @@ export const Mutation = {
     context: unknown
   ) => {
     let { products } = context as IContext;
-    const foundIndex = products.findIndex(product => product.id === id)
+    const foundIndex = products.findIndex((product) => product.id === id);
 
     products = products.map((product) => {
       if (product.id === id) {
-        return {...input, id: product.id};
+        return { ...input, id: product.id };
       } else {
         return product;
       }
     });
-    
-    return products[foundIndex]
+
+    return products[foundIndex];
   },
 
   updateReview: (
@@ -145,16 +144,16 @@ export const Mutation = {
     context: unknown
   ) => {
     let { reviews } = context as IContext;
-    const foundIndex = reviews.findIndex(review => review.id === id)
+    const foundIndex = reviews.findIndex((review) => review.id === id);
 
     reviews = reviews.map((review) => {
       if (review.id === id) {
-        return {...input, id: review.id};
+        return { ...input, id: review.id };
       } else {
         return review;
       }
     });
-    
-    return reviews[foundIndex]
+
+    return reviews[foundIndex];
   },
 };
